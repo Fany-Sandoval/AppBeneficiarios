@@ -1,0 +1,64 @@
+﻿
+@{
+    ViewBag.Title = "CreateSexo";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            Sexo
+        </div>
+        <div class="card-body">
+            <form id="enviarForm">
+                <h5 class="card-title">Nuevo Registro</h5>
+                <input type="text" placeholder="Ingresa el sexo F/M" class="form-control input-group-sm" required id="txtsexo" />
+                <hr />
+                <input type="button" value="Registrar" class="btn btn-sm btn-success" id="btnRegistrar" />
+            </form>
+        </div>
+    </div>
+</div>
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script>
+    $(document).ready(function () {
+
+        $('#btnRegistrar').click(function () {
+
+            var nombre = $('#txtsexo').val();
+            var sexo = {};
+            sexo.StrValor = nombre;
+
+            $('#btnRegistrar').hide();
+
+            $.ajax({
+                type: 'POST',
+                url: 'https://localhost:44319/api/Sexos',
+                data: JSON.stringify(sexo),
+                dataType: 'json',
+                contentType: 'application/json',
+                success: function (data) {
+
+                    if (data == true) {
+                        Limpiar();
+                        toastr.success('Se guardo de forma adecuada la solicitud', { timeOut: 1000, closeButton: true });
+                        $('#btnRegistrar').show();
+                    }
+                    else {
+                        toastr.error('No se pudo procesar la información de forma adecuada', 'Ejemplo-Restfull', { timeOut: 1000, closeButton: true });
+                    }
+                },
+                error: function (xhr) {
+                    toastr.error('No se pudo procesar la información de forma adecuada', 'Beneficiarios dice:', { timeOut: 1000, closeButton: true });
+                    console.log(xhr.responseText);
+                }
+            });
+        });
+
+
+        function Limpiar()
+        {
+            $('#txtsexo').val('');
+        }
+    });
+</script>

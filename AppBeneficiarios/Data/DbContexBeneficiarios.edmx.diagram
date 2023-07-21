@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="94c7e3de21d740e0b22754ab1268d701" Name="Diagram1" ZoomLevel="95">
+        <EntityTypeShape EntityType="GestionSolicitudesDBModel.beneficiarios" Width="1.5" PointX="3" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="GestionSolicitudesDBModel.direcciones" Width="1.5" PointX="0.75" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="GestionSolicitudesDBModel.sexos" Width="1.5" PointX="0.75" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GestionSolicitudesDBModel.telefonos" Width="1.5" PointX="5.75" PointY="2.125" IsExpanded="true" />
+        <AssociationConnector Association="GestionSolicitudesDBModel.FK_beneficiarios_direcciones" ManuallyRouted="false" />
+        <AssociationConnector Association="GestionSolicitudesDBModel.FK_beneficiarios_sexos" ManuallyRouted="false" />
+        <AssociationConnector Association="GestionSolicitudesDBModel.FK_beneficiarios_telefonos" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
